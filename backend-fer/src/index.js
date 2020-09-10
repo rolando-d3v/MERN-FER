@@ -9,7 +9,7 @@ require('./db')
 const port = process.env.PORT
 const app = express();
 app.listen(port, () => {
-  console.log(`server conectado${port}`);
+  console.log(`server conectado in port ${port}`);
 });
 
 //para enviar datos del postman
