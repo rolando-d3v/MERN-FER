@@ -45,7 +45,7 @@ exports.postUsuario = async (req, res, next) => {
   }
 };
 
-//runValidators es para actualizar los valores deacuerdo al esquema de la db
+//runValidators de mongo, es para actualizar los valores deacuerdo al esquema de la db
 exports.updateUsuario = async (req, res, next) => {
   //usando el underscore
   // el pick te retorno los valores que tu quieres actualizar
@@ -68,13 +68,10 @@ exports.updateUsuario = async (req, res, next) => {
 //Elimina un usuario en forma de estado : false o true
 exports.deleteUsuario = async (req, res, next) => {
 
-  let cambiaEstado = {
-    estado: false
-  }
+  let cambiaEstado = { estado: false }
 
   try {
     const usuario = await UsuarioModel.findByIdAndUpdate({_id: req.params.IdUsuario}, cambiaEstado, {new: true} )
- 
         res.json({
           ok: true,
           message: `usuario ${usuario.nombre} desactive successfully`
