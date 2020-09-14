@@ -1,12 +1,12 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 
-require("dotenv").config()
+// require("dotenv").config()
 require('./db')
 
 
 //server
-const port = process.env.PORT
+const port = process.env.PORT || 3500
 const app = express();
 app.listen(port, () => {
   console.log(`server conectado in port ${port}`);
